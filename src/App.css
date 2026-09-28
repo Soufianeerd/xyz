@@ -146,3 +146,25 @@
   margin-bottom: 20px;
 }
 
+/* Section réponses */
+.replies-container {
+  margin-top: 24px;
+}
+
+.replies-container h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--text-h);
+}
+
+.no-replies-message {
+  color: var(--text);
+  font-style: italic;
+  padding: 16px;
+  text-align: center;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+

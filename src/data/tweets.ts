@@ -78,5 +78,21 @@ export const initialTweets: Array<Tweet> = [
     authorHandle: "torvalds",
     content: "Parler ne coûte rien. Montrez-moi le code !",
     createdAt: "2026-07-01T18:00:00.000Z"
+  },
+  {
+    id: "e4d7a120-8c29-4b61-9c3f-4e5a6b7c8d9e",
+    authorName: "Alan Turing",
+    authorHandle: "alan_turing",
+    content: "C'est une observation fascinante sur la machine analytique, Ada. L'idée qu'elle puisse manipuler des symboles au-delà des nombres préfigure déjà le calcul universel.",
+    createdAt: "2026-07-01T18:30:00.000Z",
+    parentId: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  },
+  {
+    id: "b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
+    authorName: "Margaret Hamilton",
+    authorHandle: "margaret_apollo",
+    content: "Absolument d'accord Grace ! Remettre en question le statu quo est précisément ce qui a permis de créer le logiciel de navigation d'Apollo sans défaillance.",
+    createdAt: "2026-07-01T19:00:00.000Z",
+    parentId: "c9bf9e57-1685-4c89-bafb-ff5af830be8a"
   }
 ];

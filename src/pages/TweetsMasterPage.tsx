@@ -3,9 +3,11 @@ import { initialTweets } from "../data/tweets";
 import { TweetsList } from "../components/TweetsList";
 
 export function TweetsMasterPage(): JSX.Element {
+  const mainTweets = initialTweets.filter((tweet) => !tweet.parentId);
+
   return (
     <section className="tweets-master-page">
-      <TweetsList tweets={initialTweets} />
+      <TweetsList tweets={mainTweets} />
     </section>
   );
 }
