@@ -82,3 +82,21 @@
   word-break: break-word;
   margin: 0;
 }
+
+/* Bouton Voir plus / Voir moins */
+.tweet-expand-button {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.tweet-expand-button:hover {
+  text-decoration: underline;
+}
+
