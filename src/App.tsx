@@ -1,5 +1,5 @@
 import { useState, type JSX } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import type { Tweet } from "./types/Tweet";
 import { initialTweets } from "./data/tweets";
 import { TweetsContext } from "./contexts/TweetsContext";
@@ -40,7 +40,10 @@ export function App(): JSX.Element {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>XYZ</h1>
+        <Link to="/" className="app-brand-link">
+          <img src="/favicon.svg" alt="Logo XYZ" className="app-logo" width="36" height="36" />
+          <h1 className="app-title">XYZ</h1>
+        </Link>
       </header>
       <main className="app-main">
         <TweetsContext.Provider value={{ tweets, addTweet, toggleLike }}>
