@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { TweetsContext } from "../contexts/TweetsContext";
 import { TweetPreview } from "../components/TweetPreview";
 import { TweetsList } from "../components/TweetsList";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export function TweetDetailsPage(): JSX.Element {
   const { id } = useParams<{ id: string }>();
@@ -13,6 +14,9 @@ export function TweetDetailsPage(): JSX.Element {
 
   const { tweets, toggleLike } = context;
   const tweet = tweets.find((t) => t.id === id);
+
+  const title = tweet ? `Tweet de ${tweet.authorName}` : "Tweet introuvable";
+  useDocumentTitle(title);
 
   if (!tweet) {
     return (

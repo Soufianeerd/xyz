@@ -2,8 +2,11 @@ import { useContext, type JSX } from "react";
 import { TweetsContext } from "../contexts/TweetsContext";
 import { TweetForm } from "../components/TweetForm";
 import { TweetsList } from "../components/TweetsList";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export function TweetsMasterPage(): JSX.Element {
+  useDocumentTitle("Accueil");
+
   const context = useContext(TweetsContext);
   if (!context) {
     throw new Error("TweetsContext must be used within TweetsProvider");
