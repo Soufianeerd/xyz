@@ -1,16 +1,15 @@
-import type React from "react";
-import { initialTweets } from "./data/tweets";
-import { TweetsList } from "./components/TweetsList";
+import type { JSX } from "react";
+import { Outlet } from "react-router-dom";
 import "./App.css";
 
-export function App(): React.JSX.Element {
+export function App(): JSX.Element {
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>XYZ</h1>
       </header>
       <main className="app-main">
-        <TweetsList tweets={initialTweets} />
+        <Outlet />
       </main>
     </div>
   );

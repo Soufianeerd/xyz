@@ -1,11 +1,16 @@
 import { useState, type JSX } from "react";
+import { Link } from "react-router-dom";
 import type { Tweet } from "../types/Tweet";
 
 export type TweetPreviewProps = {
   tweet: Tweet;
+  linkToDetail?: boolean;
 };
 
-export function TweetPreview({ tweet }: TweetPreviewProps): JSX.Element {
+export function TweetPreview({
+  tweet,
+  linkToDetail = true,
+}: TweetPreviewProps): JSX.Element {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const formattedDate = new Date(tweet.createdAt).toLocaleDateString("fr-FR", {
@@ -29,13 +34,22 @@ export function TweetPreview({ tweet }: TweetPreviewProps): JSX.Element {
         </time>
       </header>
 
-      {tweet.image && (
-        <img
-          src={tweet.image.url}
-          alt={tweet.image.alt}
-          className="tweet-image"
-        />
-      )}
+      {tweet.image &&
+        (linkToDetail ? (
+          <Link to={`/tweets/${tweet.id}`} className="tweet-image-link">
+            <img
+              src={tweet.image.url}
+              alt={tweet.image.alt}
+              className="tweet-image"
+            />
+          </Link>
+        ) : (
+          <img
+            src={tweet.image.url}
+            alt={tweet.image.alt}
+            className="tweet-image"
+          />
+        ))}
 
       <p className="tweet-content">{displayedContent}</p>
 
@@ -47,6 +61,14 @@ export function TweetPreview({ tweet }: TweetPreviewProps): JSX.Element {
         >
           {isExpanded ? "Voir moins" : "Voir plus"}
         </button>
+      )}
+
+      {linkToDetail && (
+        <footer className="tweet-footer">
+          <Link to={`/tweets/${tweet.id}`} className="tweet-detail-link">
+            Voir la discussion
+          </Link>
+        </footer>
       )}
     </article>
   );

@@ -100,3 +100,49 @@
   text-decoration: underline;
 }
 
+/* Footer et liens de navigation */
+.tweet-footer {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tweet-detail-link,
+.back-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.tweet-detail-link:hover,
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.tweet-image-link {
+  display: block;
+}
+
+.details-nav {
+  margin-bottom: 16px;
+}
+
+.not-found-container {
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.not-found-container h2 {
+  margin-bottom: 12px;
+}
+
+.not-found-container p {
+  margin-bottom: 20px;
+}
+
