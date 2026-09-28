@@ -1,12 +1,18 @@
-import type { JSX } from "react";
+import { useContext, type JSX } from "react";
 import { useParams, Link } from "react-router-dom";
-import { initialTweets } from "../data/tweets";
+import { TweetsContext } from "../contexts/TweetsContext";
 import { TweetPreview } from "../components/TweetPreview";
 import { TweetsList } from "../components/TweetsList";
 
 export function TweetDetailsPage(): JSX.Element {
   const { id } = useParams<{ id: string }>();
-  const tweet = initialTweets.find((t) => t.id === id);
+  const context = useContext(TweetsContext);
+  if (!context) {
+    throw new Error("TweetsContext must be used within TweetsProvider");
+  }
+
+  const { tweets } = context;
+  const tweet = tweets.find((t) => t.id === id);
 
   if (!tweet) {
     return (
@@ -19,7 +25,7 @@ export function TweetDetailsPage(): JSX.Element {
     );
   }
 
-  const replies = initialTweets.filter((t) => t.parentId === id);
+  const replies = tweets.filter((t) => t.parentId === id);
 
   return (
     <div className="tweet-details-page">
