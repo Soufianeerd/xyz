@@ -11,7 +11,7 @@ export function TweetDetailsPage(): JSX.Element {
     throw new Error("TweetsContext must be used within TweetsProvider");
   }
 
-  const { tweets } = context;
+  const { tweets, toggleLike } = context;
   const tweet = tweets.find((t) => t.id === id);
 
   if (!tweet) {
@@ -35,12 +35,16 @@ export function TweetDetailsPage(): JSX.Element {
         </Link>
       </nav>
 
-      <TweetPreview tweet={tweet} linkToDetail={false} />
+      <TweetPreview
+        tweet={tweet}
+        linkToDetail={false}
+        onToggleLike={toggleLike}
+      />
 
       <section className="replies-container">
         <h2>Réponses</h2>
         {replies.length > 0 ? (
-          <TweetsList tweets={replies} />
+          <TweetsList tweets={replies} onToggleLike={toggleLike} />
         ) : (
           <p className="no-replies-message">Aucune réponse pour le moment.</p>
         )}

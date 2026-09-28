@@ -5,11 +5,13 @@ import type { Tweet } from "../types/Tweet";
 export type TweetPreviewProps = {
   tweet: Tweet;
   linkToDetail?: boolean;
+  onToggleLike?: (id: string) => void;
 };
 
 export function TweetPreview({
   tweet,
   linkToDetail = true,
+  onToggleLike,
 }: TweetPreviewProps): JSX.Element {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -63,13 +65,23 @@ export function TweetPreview({
         </button>
       )}
 
-      {linkToDetail && (
-        <footer className="tweet-footer">
+      <footer className="tweet-footer">
+        <div className="tweet-actions">
+          <button
+            type="button"
+            className={`tweet-like-button ${tweet.likedByMe ? "tweet-liked" : ""}`}
+            onClick={() => onToggleLike?.(tweet.id)}
+          >
+            {tweet.likedByMe ? "Je n'aime plus" : "J'aime"} ({tweet.likes})
+          </button>
+        </div>
+
+        {linkToDetail && (
           <Link to={`/tweets/${tweet.id}`} className="tweet-detail-link">
             Voir la discussion
           </Link>
-        </footer>
-      )}
+        )}
+      </footer>
     </article>
   );
 }

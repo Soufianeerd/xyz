@@ -9,13 +9,19 @@ export function TweetsMasterPage(): JSX.Element {
     throw new Error("TweetsContext must be used within TweetsProvider");
   }
 
-  const { tweets, addTweet } = context;
+  const { tweets, addTweet, toggleLike } = context;
   const mainTweets = tweets.filter((tweet) => !tweet.parentId);
+  const totalLikes = mainTweets.reduce((acc, tweet) => acc + tweet.likes, 0);
 
   return (
     <section className="tweets-master-page">
       <TweetForm onSubmit={addTweet} />
-      <TweetsList tweets={mainTweets} />
+
+      <div className="feed-stats-bar">
+        <span>{totalLikes} mention{totalLikes > 1 ? "s" : ""} J'aime sur le fil</span>
+      </div>
+
+      <TweetsList tweets={mainTweets} onToggleLike={toggleLike} />
     </section>
   );
 }

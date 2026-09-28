@@ -21,13 +21,29 @@ export function App(): JSX.Element {
     setTweets((prev) => [newTweet, ...prev]);
   }
 
+  function toggleLike(id: string): void {
+    setTweets((prevTweets) =>
+      prevTweets.map((tweet) => {
+        if (tweet.id !== id) {
+          return tweet;
+        }
+        const nextLikedByMe = !tweet.likedByMe;
+        return {
+          ...tweet,
+          likedByMe: nextLikedByMe,
+          likes: nextLikedByMe ? tweet.likes + 1 : tweet.likes - 1,
+        };
+      }),
+    );
+  }
+
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>XYZ</h1>
       </header>
       <main className="app-main">
-        <TweetsContext.Provider value={{ tweets, addTweet }}>
+        <TweetsContext.Provider value={{ tweets, addTweet, toggleLike }}>
           <Outlet />
         </TweetsContext.Provider>
       </main>

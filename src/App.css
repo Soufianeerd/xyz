@@ -106,7 +106,51 @@
   padding-top: 8px;
   border-top: 1px solid var(--border);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tweet-like-button {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tweet-like-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tweet-like-button.tweet-liked {
+  background: #ff4370;
+  color: #fff;
+  border-color: #ff4370;
+}
+
+.feed-stats-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
 }
 
 .tweet-detail-link,
