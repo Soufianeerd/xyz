@@ -33,10 +33,13 @@ export function TweetDetailsPage(): JSX.Element {
 
   return (
     <div className="tweet-details-page">
-      <nav className="details-nav">
-        <Link to="/" className="back-link">
-          ← Retour au fil
+      {/* Bonus TD02 : Fil d'Ariane */}
+      <nav className="breadcrumbs-nav" aria-label="Fil d'Ariane">
+        <Link to="/" className="breadcrumb-link">
+          Accueil
         </Link>
+        <span className="breadcrumb-separator">›</span>
+        <span className="breadcrumb-current">Tweet de {tweet.authorName}</span>
       </nav>
 
       <TweetPreview
@@ -46,7 +49,7 @@ export function TweetDetailsPage(): JSX.Element {
       />
 
       <section className="replies-container">
-        <h2>Réponses</h2>
+        <h2>Réponses ({replies.length})</h2>
         {replies.length > 0 ? (
           <TweetsList tweets={replies} onToggleLike={toggleLike} />
         ) : (

@@ -44,6 +44,14 @@ export function App(): JSX.Element {
           <img src="/favicon.svg" alt="Logo XYZ" className="app-logo" width="36" height="36" />
           <h1 className="app-title">XYZ</h1>
         </Link>
+        <nav className="app-nav">
+          <Link to="/" className="app-nav-link">
+            Fil
+          </Link>
+          <Link to="/a-propos" className="app-nav-link">
+            À propos
+          </Link>
+        </nav>
       </header>
       <main className="app-main">
         <TweetsContext.Provider value={{ tweets, addTweet, toggleLike }}>

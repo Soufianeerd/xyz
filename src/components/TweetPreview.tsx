@@ -1,6 +1,7 @@
 import { useState, type JSX } from "react";
 import { Link } from "react-router-dom";
 import type { Tweet } from "../types/Tweet";
+import { Avatar } from "./Avatar";
 
 export type TweetPreviewProps = {
   tweet: Tweet;
@@ -29,11 +30,14 @@ export function TweetPreview({
   return (
     <article className="tweet-card">
       <header className="tweet-header">
-        <span className="tweet-author-name">{tweet.authorName}</span>
-        <span className="tweet-author-handle">@{tweet.authorHandle}</span>
-        <time className="tweet-date" dateTime={tweet.createdAt}>
-          · {formattedDate}
-        </time>
+        <Avatar name={tweet.authorName} />
+        <div className="tweet-header-info">
+          <span className="tweet-author-name">{tweet.authorName}</span>
+          <span className="tweet-author-handle">@{tweet.authorHandle}</span>
+          <time className="tweet-date" dateTime={tweet.createdAt}>
+            · {formattedDate}
+          </time>
+        </div>
       </header>
 
       {tweet.image &&
