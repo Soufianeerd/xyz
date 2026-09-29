@@ -100,11 +100,3 @@ bun tsc --noEmit
 ```bash
 bun run build
 ```
-
----
-
-## Déclaration d'assistance (Cadre TD Fondations)
-
-Conformément aux consignes du cadrage pédagogique du TD Fondations :
-* Des outils d'assistance IA ont été utilisés pour la compréhension des concepts, l'analyse d'erreurs statiques et la validation de la conformité aux spécifications du sujet.
-* L'ensemble du code produit, des choix d'architecture (modèles, typage, routage, contexte, immutabilité) et des rendus visuels a été vérifié et audité manuellement pour en assurer la parfaite maîtrise.
